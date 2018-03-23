@@ -14,8 +14,8 @@ class GameContainer extends Component {
     return (
       <div className="row">
         <div className="col-sm-12">
-          <ChatroomContainer />
           <GameBoard />
+          <ChatroomContainer />
         </div>
       </div>
     );
