@@ -3,6 +3,7 @@ import {
   USERNAME_SET,
   USERID_SET,
   USER_JOINED,
+  USER_LEFT,
   RECEIVED_USER_LIST
 } from "../constants";
 import uuid from "uuid";
@@ -17,8 +18,17 @@ export const enterGame = () => {
     });
 
     await openConnection();
-    
+
     joinGame();
+  };
+};
+
+export const userLeft = userId => {
+  return dispatch => {
+    dispatch({
+      type: USER_LEFT,
+      userId
+    });
   };
 };
 

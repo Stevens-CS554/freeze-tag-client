@@ -1,7 +1,8 @@
+import { API_URL } from "../store/constants";
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080"
+  baseURL: API_URL
 });
 
 export const fetchUserList = async () => {

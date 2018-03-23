@@ -3,6 +3,7 @@ import {
   USERNAME_SET,
   USERID_SET,
   USER_JOINED,
+  USER_LEFT,
   RECEIVED_USER_LIST
 } from "../constants";
 
@@ -40,6 +41,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         users: [...state.users, action.user]
+      };
+    }
+
+    case USER_LEFT: {
+      return {
+        ...state,
+        users: [...state.users.filter(x => x.id !== action.userId)]
       };
     }
 
