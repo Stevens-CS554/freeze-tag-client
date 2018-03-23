@@ -1,7 +1,7 @@
 import { API_URL } from "../store/constants";
 import store from "../store";
 import io from "socket.io-client";
-import { userJoined, userLeft } from "../store/actions/users";
+import { userJoined, userLeft, userMoved } from "../store/actions/users";
 
 let socket = null;
 const dispatch = store.dispatch;
@@ -19,6 +19,10 @@ export const openConnection = () => {
       dispatch(userLeft(userId));
     });
 
+    socket.on("player-moved", moveData => {
+      dispatch(userMoved(moveData.userId, moveData.x, moveData.y));
+    });
+
     socket.on("connect", resolve);
   });
 };
@@ -26,4 +30,8 @@ export const openConnection = () => {
 export const joinGame = () => {
   const currentUser = getState().users.currentUser;
   socket.emit("join", currentUser);
+};
+
+export const sendMoveUserCommand = direction => {
+  socket.emit("move", direction);
 };

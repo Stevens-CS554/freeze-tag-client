@@ -1,7 +1,6 @@
 .gameboard {
-  width: 550px;
+  width: 100%;
   margin: auto;
-  padding: 25px;
   height: 550px;
   position: relative;
   border: 1px solid #000;
@@ -13,6 +12,11 @@
   transition: left linear 2s, top linear 2s;
   width: 10%;
   height: 10%;
+}
+
+.gameboard-tile img {
+  max-height: 100%;
+  display: block;
 }
 
 .gameboard-tile.x-1 {

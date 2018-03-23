@@ -1,6 +1,8 @@
 import {
   AVATAR_SET,
   USERNAME_SET,
+  MOVE_USER,
+  USER_MOVED,
   USERID_SET,
   USER_JOINED,
   USER_LEFT,
@@ -8,7 +10,11 @@ import {
 } from "../constants";
 import uuid from "uuid";
 import { fetchUserList } from "../../utilities/httpApi";
-import { openConnection, joinGame } from "../../utilities/socketClient";
+import {
+  openConnection,
+  joinGame,
+  sendMoveUserCommand
+} from "../../utilities/socketClient";
 
 export const enterGame = () => {
   return async dispatch => {
@@ -66,6 +72,23 @@ export const usernameSet = name => {
     dispatch({
       type: USERNAME_SET,
       name
+    });
+  };
+};
+
+export const moveUser = direction => {
+  return dispatch => {
+    sendMoveUserCommand(direction);
+  };
+};
+
+export const userMoved = (userId, x, y) => {
+  return dispatch => {
+    dispatch({
+      type: USER_MOVED,
+      userId,
+      y,
+      x
     });
   };
 };

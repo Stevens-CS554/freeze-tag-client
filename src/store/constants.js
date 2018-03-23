@@ -7,3 +7,5 @@ export const USERID_SET = "users/USERID_SET";
 export const USER_JOINED = "users/USER_JOINED";
 export const USER_LEFT = "users/USER_LEFT";
 export const RECEIVED_USER_LIST = "users/RECEIVED_USER_LIST";
+export const USER_MOVED = "users/USER_MOVED";
+export const MOVE_USER = "users/MOVE_USER";

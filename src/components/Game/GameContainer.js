@@ -4,6 +4,7 @@ import { getUsers } from "../../store/actions/users";
 
 import ChatroomContainer from "../Chatroom/ChatroomContainer";
 import GameBoard from "./GameBoard";
+import GameController from "./GameController";
 
 class GameContainer extends Component {
   componentDidMount() {
@@ -15,6 +16,7 @@ class GameContainer extends Component {
       <div className="row">
         <div className="col-sm-12">
           <GameBoard />
+          <GameController />
           <ChatroomContainer />
         </div>
       </div>
