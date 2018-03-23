@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GameContainer from "./Game/GameContainer";
+import GameStateContainer from "./Game/GameStateContainer";
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
             Are you ready for the most amazing game in the world, freeze tag?
           </p>
         </header>
-        <GameContainer />
+        <GameStateContainer />
       </div>
     );
   }

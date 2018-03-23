@@ -1,21 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import GameLogin from "./GameLogin";
+import { getUsers } from "../../store/actions/users";
+
 import ChatroomContainer from "../Chatroom/ChatroomContainer";
 
 class GameContainer extends Component {
-  render() {
-    if (this.props.currentUserId) {
-      return (
-        <div className="row">
-          <div className="col-sm-3">
-            <ChatroomContainer />
-          </div>
-        </div>
-      );
-    }
+  componentDidMount() {
+    this.props.getUsers();
+  }
 
-    return <GameLogin />;
+  render() {
+    return (
+      <div className="row">
+        <div className="col-sm-3">
+          <ChatroomContainer />
+        </div>
+      </div>
+    );
   }
 }
 
@@ -25,6 +26,14 @@ const mapStateToProps = state => {
   };
 };
 
-GameContainer = connect(mapStateToProps)(GameContainer);
+const mapDispatchToProps = dispatch => {
+  return {
+    getUsers: () => {
+      dispatch(getUsers());
+    }
+  };
+};
+
+GameContainer = connect(mapStateToProps, mapDispatchToProps)(GameContainer);
 
 export default GameContainer;

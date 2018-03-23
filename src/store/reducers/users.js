@@ -2,7 +2,8 @@ import {
   AVATAR_SET,
   USERNAME_SET,
   USERID_SET,
-  USER_JOINED
+  USER_JOINED,
+  RECEIVED_USER_LIST
 } from "../constants";
 
 const initialState = {
@@ -40,6 +41,10 @@ export default (state = initialState, action) => {
         ...state,
         users: [...state.users, action.user]
       };
+    }
+
+    case RECEIVED_USER_LIST: {
+      return { ...state, users: [...state.users, ...action.users] };
     }
 
     default:
