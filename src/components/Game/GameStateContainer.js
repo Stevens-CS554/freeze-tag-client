@@ -8,7 +8,7 @@ class GameStateContainer extends Component {
     if (this.props.currentUserId) {
       return (
         <div className="row">
-          <div className="col-sm-3">
+          <div className="col-sm-12">
             <GameContainer />
           </div>
         </div>

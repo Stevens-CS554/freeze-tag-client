@@ -11,7 +11,18 @@ class GameLogin extends Component {
       <div className="row">
         <div className="col-sm-8">
           <h2>Player Profile</h2>
-          <form className="form-horizontal">
+          <form
+            className="form-horizontal"
+            onSubmit={e => {
+              e.preventDefault();
+              if (
+                this.props.currentUser.avatar !== 0 &&
+                this.props.currentUser.name
+              ) {
+                this.props.enterGame();
+              }
+            }}
+          >
             <div className="form-group">
               <label htmlFor="username" className="col-sm-2 control-label">
                 Username
@@ -46,21 +57,12 @@ class GameLogin extends Component {
             <div className="form-group">
               <div className="col-sm-offset-2 col-sm-10">
                 <button
-                  type="button"
+                  type="submit"
                   className="btn btn-default"
                   disabled={
                     this.props.currentUser.avatar === 0 ||
                     !this.props.currentUser.name
                   }
-                  onClick={e => {
-                    e.preventDefault();
-                    if (
-                      this.props.currentUser.avatar !== 0 &&
-                      this.props.currentUser.name
-                    ) {
-                      this.props.enterGame();
-                    }
-                  }}
                 >
                   Start Game
                 </button>
