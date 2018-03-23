@@ -4,6 +4,32 @@ import { moveUser } from "../../store/actions/users";
 
 class GameController extends Component {
   render() {
+    const down =
+      this.props.y > 1 ? (
+        <button
+          className="btn btn-primary"
+          onClick={e => {
+            e.preventDefault();
+            this.props.moveUser("down");
+          }}
+        >
+          Down
+        </button>
+      ) : null;
+
+    const up =
+      this.props.y < 10 ? (
+        <button
+          className="btn btn-primary"
+          onClick={e => {
+            e.preventDefault();
+            this.props.moveUser("up");
+          }}
+        >
+          Up
+        </button>
+      ) : null;
+
     const left =
       this.props.x > 1 ? (
         <button
@@ -36,7 +62,7 @@ class GameController extends Component {
           <p className="help-text">
             Currently at {this.props.x}, {this.props.y}
           </p>
-          {left} {right}
+          {up} {right} {down} {left}
         </div>
       </div>
     );

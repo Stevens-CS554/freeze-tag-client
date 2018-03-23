@@ -9,7 +9,7 @@
 
 .gameboard-tile {
   position: absolute;
-  transition: left linear 2s, top linear 2s;
+  transition: left linear 2s, bottom linear 2s;
   width: 10%;
   height: 10%;
 }
