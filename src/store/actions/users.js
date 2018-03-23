@@ -1,12 +1,27 @@
-import { AVATAR_SET, USERNAME_SET, USERID_SET } from "../constants";
+import {
+  AVATAR_SET,
+  USERNAME_SET,
+  USERID_SET,
+  USER_JOINED
+} from "../constants";
 import uuid from "uuid";
 
 export const enterGame = () => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const state = getState();
+
     dispatch({
       type: USERID_SET,
       id: uuid.v4()
     });
+
+    setTimeout(function() {
+      // Temporary! We'll get this from sockets soon!
+      dispatch({
+        type: USER_JOINED,
+        user: state.users.currentUser
+      });
+    }, 0);
   };
 };
 

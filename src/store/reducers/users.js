@@ -1,4 +1,9 @@
-import { AVATAR_SET, USERNAME_SET, USERID_SET } from "../constants";
+import {
+  AVATAR_SET,
+  USERNAME_SET,
+  USERID_SET,
+  USER_JOINED
+} from "../constants";
 
 const initialState = {
   currentUser: {
@@ -27,6 +32,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         currentUser: { ...state.currentUser, id: action.id }
+      };
+    }
+
+    case USER_JOINED: {
+      return {
+        ...state,
+        users: [...state.users, action.user]
       };
     }
 
