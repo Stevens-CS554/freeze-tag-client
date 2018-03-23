@@ -60,7 +60,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         users: state.users.map(user => {
-          if (!user.id !== action.userId) return user;
+          if (user.id !== action.userId) return user;
 
           return { ...user, x: action.x, y: action.y };
         })
