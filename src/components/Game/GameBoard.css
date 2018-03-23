@@ -1,0 +1,96 @@
+.gameboard {
+  width: 550px;
+  margin: auto;
+  padding: 25px;
+  height: 550px;
+  position: relative;
+  border: 1px solid #000;
+  margin-bottom: 100px;
+}
+
+.gameboard-tile {
+  position: absolute;
+  transition: left linear 2s, top linear 2s;
+  width: 10%;
+  height: 10%;
+}
+
+.gameboard-tile.x-1 {
+  left: 0%;
+}
+
+.gameboard-tile.x-2 {
+  left: 10%;
+}
+
+.gameboard-tile.x-3 {
+  left: 20%;
+}
+
+.gameboard-tile.x-4 {
+  left: 30%;
+}
+
+.gameboard-tile.x-5 {
+  left: 40%;
+}
+
+.gameboard-tile.x-6 {
+  left: 50%;
+}
+
+.gameboard-tile.x-7 {
+  left: 60%;
+}
+
+.gameboard-tile.x-8 {
+  left: 70%;
+}
+
+.gameboard-tile.x-9 {
+  left: 80%;
+}
+
+.gameboard-tile.x-10 {
+  left: 90%;
+}
+
+.gameboard-tile.y-1 {
+  bottom: 0%;
+}
+
+.gameboard-tile.y-2 {
+  bottom: 10%;
+}
+
+.gameboard-tile.y-3 {
+  bottom: 20%;
+}
+
+.gameboard-tile.y-4 {
+  bottom: 30%;
+}
+
+.gameboard-tile.y-5 {
+  bottom: 40%;
+}
+
+.gameboard-tile.y-6 {
+  bottom: 50%;
+}
+
+.gameboard-tile.y-7 {
+  bottom: 60%;
+}
+
+.gameboard-tile.y-8 {
+  bottom: 70%;
+}
+
+.gameboard-tile.y-9 {
+  bottom: 80%;
+}
+
+.gameboard-tile.y-10 {
+  bottom: 90%;
+}

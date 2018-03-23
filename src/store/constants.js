@@ -1,5 +1,5 @@
-//export const API_URL = "http://localhost:8080";
-export const API_URL = "https://cs-554-freeze-tag.herokuapp.com";
+export const API_URL = "http://localhost:8080";
+// export const API_URL = "https://cs-554-freeze-tag.herokuapp.com";
 
 export const AVATAR_SET = "users/AVATAR_SET";
 export const USERNAME_SET = "users/USERNAME_SET";
