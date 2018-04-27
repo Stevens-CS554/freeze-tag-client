@@ -2,6 +2,7 @@ import {
   AVATAR_SET,
   USERNAME_SET,
   USERID_SET,
+  USERS_FROZEN,
   USER_JOINED,
   USER_MOVED,
   USER_LEFT,
@@ -54,6 +55,17 @@ export default (state = initialState, action) => {
 
     case RECEIVED_USER_LIST: {
       return { ...state, users: [...state.users, ...action.users] };
+    }
+
+    case USERS_FROZEN: {
+      return {
+        ...state,
+        users: state.users.map(user => {
+          if (action.users.indexOf(user.id) < 0) return user;
+
+          return { ...user, frozen: true };
+        })
+      };
     }
 
     case USER_MOVED: {

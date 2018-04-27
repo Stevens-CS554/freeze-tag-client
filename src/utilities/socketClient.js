@@ -1,7 +1,7 @@
 import { API_URL } from "../store/constants";
 import store from "../store";
 import io from "socket.io-client";
-import { userJoined, userLeft, userMoved } from "../store/actions/users";
+import { userJoined, userLeft, userMoved, usersFrozen } from "../store/actions/users";
 
 let socket = null;
 const dispatch = store.dispatch;
@@ -21,6 +21,10 @@ export const openConnection = () => {
 
     socket.on("player-moved", moveData => {
       dispatch(userMoved(moveData.userId, moveData.x, moveData.y));
+    });
+
+    socket.on("players-frozen", frozenPlayers => {
+      dispatch(usersFrozen(frozenPlayers));
     });
 
     socket.on("connect", resolve);

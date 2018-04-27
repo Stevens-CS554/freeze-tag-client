@@ -1,4 +1,5 @@
 import {
+  USERS_FROZEN,
   AVATAR_SET,
   USERNAME_SET,
   MOVE_USER,
@@ -89,6 +90,15 @@ export const userMoved = (userId, x, y) => {
       userId,
       y,
       x
+    });
+  };
+};
+
+export const usersFrozen = users => {
+  return dispatch => {
+    dispatch({
+      type: USERS_FROZEN,
+      users
     });
   };
 };

@@ -8,6 +8,7 @@ class GameController extends Component {
       this.props.y > 1 ? (
         <button
           className="btn btn-primary"
+          disabled={this.props.frozen}
           onClick={e => {
             e.preventDefault();
             this.props.moveUser("down");
@@ -21,6 +22,7 @@ class GameController extends Component {
       this.props.y < 10 ? (
         <button
           className="btn btn-primary"
+          disabled={this.props.frozen}
           onClick={e => {
             e.preventDefault();
             this.props.moveUser("up");
@@ -34,6 +36,7 @@ class GameController extends Component {
       this.props.x > 1 ? (
         <button
           className="btn btn-primary"
+          disabled={this.props.frozen}
           onClick={e => {
             e.preventDefault();
             this.props.moveUser("left");
@@ -47,6 +50,7 @@ class GameController extends Component {
       this.props.x < 10 ? (
         <button
           className="btn btn-primary"
+          disabled={this.props.frozen}
           onClick={e => {
             e.preventDefault();
             this.props.moveUser("right");
@@ -75,10 +79,11 @@ const mapStateToProps = state => {
   )[0];
 
   if (!userEntry) {
-    return { x: 0, y: 0 };
+    return { x: null, y: null, frozen: true };
   }
 
   return {
+    frozen: userEntry.frozen,
     x: userEntry.x,
     y: userEntry.y
   };
